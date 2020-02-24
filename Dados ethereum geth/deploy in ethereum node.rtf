@@ -1,0 +1,71 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1561\cocoasubrtf400
+{\fonttbl\f0\fnil\fcharset0 Monaco;\f1\fmodern\fcharset0 Courier;\f2\fnil\fcharset0 Menlo-Regular;
+}
+{\colortbl;\red255\green255\blue255;\red242\green242\blue242;\red68\green68\blue68;\red60\green69\blue80;
+\red255\green255\blue255;\red81\green220\blue58;\red27\green31\blue34;\red244\green246\blue249;\red91\green40\blue180;
+\red203\green35\blue57;\red81\green220\blue58;\red7\green68\blue184;\red6\green33\blue79;}
+{\*\expandedcolortbl;;\csgray\c95825;\cspthree\c33712\c33712\c33712\c85000;\cssrgb\c30196\c34118\c38824;
+\cssrgb\c100000\c100000\c100000;\cssrgb\c36573\c87207\c28990;\cssrgb\c14118\c16078\c18039;\cssrgb\c96471\c97255\c98039;\cssrgb\c43529\c25882\c75686;
+\cssrgb\c84314\c22745\c28627;\cssrgb\c36577\c87210\c28994;\cssrgb\c0\c36078\c77255;\cssrgb\c1176\c18431\c38431;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww24500\viewh12560\viewkind0
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f0\fs22 \cf2 \cb3 \CocoaLigature0 personal.unlockAccount(eth.coinbase);\
+\
+var contract = eth.contract([\{"constant":true,"inputs":[\{"name":"x","type":"uint8"\},\{"name":"y","type":"uint8"\}],"name":"getValue","outputs":[\{"name":"","type":"uint8"\}],"payable":false,"stateMutability":"view","type":"function"\},\{"constant":false,"inputs":[],"name":"kill","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"\},\{"inputs":[],"payable":false,"stateMutability":"nonpayable","type":"constructor"\}])\
+\
+var instance = contract.new(bytecode, \{from:eth.coinbase, data:bytecode, gas: 2000000\});\
+instance.getvalue(1,2)\
+\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\
+var mycarrayContract.at = eth.contract([\{"constant":true,"inputs":[\{"name":"x","type":"uint8"\},\{"name":"y","type":"uint8"\}],"name":"getValue","outputs":[\{"name":"","type":"uint8"\}],"payable":false,"stateMutability":"view","type":"function"\},\{"constant":false,"inputs":[],"name":"kill","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"\},\{"inputs":[],"payable":false,"stateMutability":"nonpayable","type":"constructor"\}])\
+\
+mycarrayContract.at("0x419a042FF81beAD2838D6A506076da7dF3542cF3").getValue(1,1);\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\
+Executar do RPC \
+https://ethereum.stackexchange.com/questions/8671/using-my-contracts-functions-via-rpc-calls\
+\
+Deploy e Execute SmartContracts\
+https://medium.com/@chakrvyuh/prototyping-a-blockchain-smart-contract-78877464e38e\
+\
+https://remix.ethereum.org/#version=soljson-v0.4.17+commit.bdeb9e52.js&optimize=false\
+\
+\
+\
+\pard\pardeftab720\partightenfactor0
+
+\f1\fs28 \cf4 \cb5 \expnd0\expndtw0\kerning0
+\CocoaLigature1  curl localhost:8545 -X POST --data '\{"jsonrpc":"2.0","method":"eth_call","params":[\{"from": "0x8aff0a12f3e8d55cc718d36f84e002c335df2f4a", "to": "0x5c7687810ce3eae6cda44d0e6c896245cd4f97c6", "data": "0x6740d36c0000000000000000000000000000000000000000000000000000000000000005"\}],"id":1\}'\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f0\fs22 \cf2 \cb3 \kerning1\expnd0\expndtw0 \CocoaLigature0 > web3.sha3('getValue(int256,int256)')\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf6 "0x1b332f68d265064ffa8af2ff8b2f11fe81c2647747bf0f260a9b4ad16f73ff53"\
+\pard\pardeftab720\partightenfactor0
+
+\f1\fs28 \cf4 \cb5 \expnd0\expndtw0\kerning0
+\CocoaLigature1 0x6740d36c0000000000000000000000000000000000000000000000000000000000000005
+\f0\fs22 \cf6 \cb3 \kerning1\expnd0\expndtw0 \CocoaLigature0 \
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\fs20 \cf2 \cb3 eth.getTransaction("0x66c14d93659b589f15fc3a1a313dbbfe219af72965cf7ab8b46662b78c4c8d80")\
+\
+eth.getBalance("0x9368b0c38f490cd8a873dc1975793260d656fb39")\
+eth.getBalance("0x6e74ff590e006867a9f7df32cd8ebd4a9a3876f0")\
+\
+personal.unlock(\'930x9368b0c38f490cd8a873dc1975793260d656fb39")\
+\
+\pard\pardeftab720\partightenfactor0
+
+\f2\fs27\fsmilli13600 \cf7 \cb8 \expnd0\expndtw0\kerning0
+\CocoaLigature1 eth.\cf9 sendTransaction\cf7 (\{from\cf10 :
+\f0\fs20 \cf11 \cb3 \kerning1\expnd0\expndtw0 \CocoaLigature0 "0x9368b0c38f490cd8a873dc1975793260d656fb39"
+\f2\fs27\fsmilli13600 \cf7 \cb8 \expnd0\expndtw0\kerning0
+\CocoaLigature1 , to\cf10 :
+\f0\fs20 \cf11 \cb3 \kerning1\expnd0\expndtw0 \CocoaLigature0 "0x6e74ff590e006867a9f7df32cd8ebd4a9a3876f0"
+\f2\fs27\fsmilli13600 \cf7 \cb8 \expnd0\expndtw0\kerning0
+\CocoaLigature1 , value\cf10 :\cf7  web3.\cf9 toWei\cf7 (\cf12 0.05\cf7 , \cf13 "ether"\cf7 )\})\
+}

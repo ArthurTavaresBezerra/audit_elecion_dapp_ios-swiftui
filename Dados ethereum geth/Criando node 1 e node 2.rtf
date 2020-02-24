@@ -1,0 +1,52 @@
+ruby -e “$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+brew tap ethereum/ethereum
+brew install ethereum
+
+genesis.json
+{
+   "config": {
+      "chainId": 1994,
+      "homesteadBlock": 0,
+      "eip155Block": 0,
+      "eip158Block": 0,
+      "byzantiumBlock": 0
+   },
+   "difficulty": "400",
+   "gasLimit": "2000000",
+   "alloc": {
+      "9368b0c38f490cd8a873dc1975793260d656fb39": { 
+          "balance": "100000000000000000000000" 
+      },
+      "ae13d41d66af28380c7af6d825ab557eb271ffff": { 
+          "balance": "120000000000000000000000" 
+      }
+   }
+}
+
+geth --datadir ./blockchain-tcc/private1/ init --ipcapi "admin,eth,miner" --rpcapi "eth,web3" ./blockchain-tcc/private1/genesis.json 
+geth --datadir ./blockchain-tcc/private1/ --networkid 1114 console 2>> myEth.log 
+geth --datadir ./private1 --networkid 1114 --mine --minerthreads=1 console --rpc --nat extip:127.0.0.1
+ geth --pprof --datadir ./private1 --networkid 1114 --mine --minerthreads=1 console --rpc --nat extip:127.0.0.1 
+
+
+personal.newAccount("account1"); 0xd09a63439029edd6f12c5ea0362a07f336daf1f2
+miner.setEtherbase(web3.eth.accounts[0]) or eth.coinbase;
+eth.getBalance(eth.coinbase)
+miner.start()
+miner.stop()
+
+
+——————— Add a Peer
+
+geth --datadir ./blockchain-tcc/private2/  init ./blockchain-tcc/private1/genesis.json 
+geth --datadir ./blockchain-tcc/private2/ --networkid 1114  --port 30304  —rpcport 8546 --rpc -—nat extip:192.168.15.6 --bootnodes 
+ 
+geth --datadir ./private2 --networkid 1114 --port 30304 —rpcport 8546 --mine --minerthreads=1 console --rpc -—nat extip:127.0.0.1
+--ipcapi "admin,eth,miner" --rpcapi "eth,web3"
+admin.nodeInfo.enode — Primeiro node 
+admin.addPeer( “enode://66a19741686a0f845e8ebf5f29ae85bbfe04d5f62819918acdb8f5ff427de04fc93d6417419df26e7810d8cbef8d026c27cba769d316d73023c91141afae443f@127.0.0.1:30303” )
+
+
+
+
+https://medium.com/mercuryprotocol/how-to-create-your-own-private-ethereum-blockchain-dad6af82fc9f

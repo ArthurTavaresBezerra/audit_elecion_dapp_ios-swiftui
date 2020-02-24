@@ -1,0 +1,37 @@
+personal.unlockAccount(eth.coinbase);
+
+var contract = eth.contract([{"constant":true,"inputs":[{"name":"x","type":"uint8"},{"name":"y","type":"uint8"}],"name":"getValue","outputs":[{"name":"","type":"uint8"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[],"name":"kill","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"inputs":[],"payable":false,"stateMutability":"nonpayable","type":"constructor"}])
+
+var instance = contract.new(bytecode, {from:eth.coinbase, data:bytecode, gas: 2000000});
+instance.getvalue(1,2)
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+var mycarrayContract.at = eth.contract([{"constant":true,"inputs":[{"name":"x","type":"uint8"},{"name":"y","type":"uint8"}],"name":"getValue","outputs":[{"name":"","type":"uint8"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[],"name":"kill","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"inputs":[],"payable":false,"stateMutability":"nonpayable","type":"constructor"}])
+
+mycarrayContract.at("0x419a042FF81beAD2838D6A506076da7dF3542cF3").getValue(1,1);
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+Executar do RPC 
+https://ethereum.stackexchange.com/questions/8671/using-my-contracts-functions-via-rpc-calls
+
+Deploy e Execute SmartContracts
+https://medium.com/@chakrvyuh/prototyping-a-blockchain-smart-contract-78877464e38e
+
+https://remix.ethereum.org/#version=soljson-v0.4.17+commit.bdeb9e52.js&optimize=false
+
+
+
+ curl localhost:8545 -X POST --data '{"jsonrpc":"2.0","method":"eth_call","params":[{"from": "0x8aff0a12f3e8d55cc718d36f84e002c335df2f4a", "to": "0x5c7687810ce3eae6cda44d0e6c896245cd4f97c6", "data": "0x6740d36c0000000000000000000000000000000000000000000000000000000000000005"}],"id":1}'
+> web3.sha3('getValue(int256,int256)')
+"0x1b332f68d265064ffa8af2ff8b2f11fe81c2647747bf0f260a9b4ad16f73ff53"
+0x6740d36c0000000000000000000000000000000000000000000000000000000000000005
+
+eth.getTransaction("0x66c14d93659b589f15fc3a1a313dbbfe219af72965cf7ab8b46662b78c4c8d80")
+
+eth.getBalance("0x9368b0c38f490cd8a873dc1975793260d656fb39")
+eth.getBalance("0x6e74ff590e006867a9f7df32cd8ebd4a9a3876f0")
+
+personal.unlockAccount(“0x9368b0c38f490cd8a873dc1975793260d656fb39")
+
+eth.sendTransaction({from:"0x9368b0c38f490cd8a873dc1975793260d656fb39", to:"0x6e74ff590e006867a9f7df32cd8ebd4a9a3876f0", value: web3.toWei(0.05, "ether")})
