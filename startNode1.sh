@@ -1,3 +1,4 @@
+cd /Users/arthurtavaresbezerra/repository/blockchain-tcc
 DATADIR="./private1"
 PORT=30301
 RCPPORT=8541
@@ -18,6 +19,5 @@ geth console \
 --port $PORT \
 --rpcaddr $IP_LOCAL \
 --rpcport $RCPPORT \
---nodiscover \
 --unlock 0,1,2 \
 --password ./accounts/passwdfile

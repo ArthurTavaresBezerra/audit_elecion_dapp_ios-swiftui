@@ -1,5 +1,2 @@
-eth.sendTransaction({from: "0x9cf997fd313e4c4c678593428cc65235dc298c6d", to: "0x019b2231c3cd4e4f3115ea69573014702d4cbb23", value: web3.toWei(10, "ether")})
-
-eth.sendTransaction({from: "0x9cf997fd313e4c4c678593428cc65235dc298c6d", to: eth.accounts[2], value: web3.toWei(11, "ether")})
-
-eth.sendTransaction({from: "0xaddf27c50b9484391a851aa1dcc4493456f97caf", to: eth.accounts[2], value: web3.toWei(1, "ether")})
+eth.sendTransaction({from: "0x019b2231c3cd4e4f3115ea69573014702d4cbb23", to: "0xba1e081c82bcddfd2011da6ea97d1e1241959010", value: web3.toWei(1, "ether")})
+eth.sendTransaction({from: "0x019b2231c3cd4e4f3115ea69573014702d4cbb23", to: "0xea685b9f731aecd7c91a8d98b6f2021e20a5e049", value: web3.toWei(2, "ether")})
