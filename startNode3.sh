@@ -1,0 +1,1 @@
+geth console --datadir ./private3 --networkid 15 --mine --etherbase=0x9368b0c38f490cd8a873dc1975793260d656fb39 --rpc --rpcapi "admin,personal,eth,web3" --port 30303 --rpcport 8543 --bootnodes=enode://ade014498c7295d6ff0c3938d7f0f25faf164b216122ab45d6ba64aa5707d84eb93c1f7fb9149b040b57db56ea1a21874c4fe49d9b9f82e698b18536836faa49@192.168.1.10:30301
