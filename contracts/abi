@@ -1,0 +1,104 @@
+[
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "getTotalCandidatos",
+		"outputs": [
+			{
+				"name": "total",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "pidBu",
+				"type": "string"
+			},
+			{
+				"name": "pidCandidato",
+				"type": "string"
+			},
+			{
+				"name": "puf",
+				"type": "uint256"
+			},
+			{
+				"name": "pcmun",
+				"type": "uint256"
+			},
+			{
+				"name": "pvoteCount",
+				"type": "uint256"
+			}
+		],
+		"name": "vote",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "candidatos",
+		"outputs": [
+			{
+				"name": "id",
+				"type": "string"
+			},
+			{
+				"name": "uf",
+				"type": "uint256"
+			},
+			{
+				"name": "cmun",
+				"type": "uint256"
+			},
+			{
+				"name": "voteCount",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "pidCandidato",
+				"type": "string"
+			},
+			{
+				"name": "puf",
+				"type": "uint256"
+			},
+			{
+				"name": "pcmun",
+				"type": "uint256"
+			}
+		],
+		"name": "getTotalVotosPorCandidato",
+		"outputs": [
+			{
+				"name": "total",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	}
+]
