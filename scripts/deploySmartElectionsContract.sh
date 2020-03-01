@@ -1,5 +1,2 @@
-cd /Users/arthurtavaresbezerra/repository/blockchain-tcc
-echo "Abi Contract"
-solc ./contracts/votacao.sol --abi
-echo "Compile Contract"
-solc ./contracts/votacao.sol --bin
+cd "$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )/.."
+geth --jspath "./scripts/scriptsJs" --exec 'loadScript("deploySmartElectionsContract.js")' attach ipc:./nodes/private1/geth.ipc
