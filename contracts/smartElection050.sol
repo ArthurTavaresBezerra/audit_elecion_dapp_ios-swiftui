@@ -1,4 +1,4 @@
-pragma solidity ^0.6.1;
+pragma solidity ^0.5.0;
 
 contract SmartELection {
 
@@ -24,7 +24,7 @@ contract SmartELection {
     Candidato[] candidatos;
     mapping(string => BU) bus;
 
-    function vote(string memory pidBu, string memory pidCandidato, uint puf, uint pcmun, uint256 pvoteCount) public  {
+    function vote(string memory pidBu, string memory pidCandidato, uint puf, uint pcmun, uint256 pvoteCount) public {
 
         if (strIsEmpty(bus[pidBu].id)){
             bus[pidBu].id = pidBu;
@@ -55,6 +55,7 @@ contract SmartELection {
 
         if (!isCandidatoInserido) {
             candidatos.push(Candidato({id:pidCandidato, uf:puf, cmun:pcmun, voteCount:pvoteCount }));
+
         }
     }
 
@@ -101,19 +102,4 @@ contract SmartELection {
         bytes memory a = bytes(_a);
         return (a.length == 0);
     }
-
-    uint256 a;
-    uint256 b;
-
-    function setValue(uint256 x, uint256 y) public {
-        a = x;
-        b = y;
-    }
-
-    function getValue() public view returns(uint256) {
-        if (a > 0 && b > 0)
-            return a*b;
-        return 255;
-    }
-
 }
