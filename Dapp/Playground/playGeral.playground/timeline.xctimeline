@@ -2,5 +2,10 @@
 <Timeline
    version = "3.0">
    <TimelineItems>
+      <LoggerValueHistoryTimelineItem
+         documentLocation = "file:///Users/arthurtavaresbezerra/repository/blockchain-tcc/Dapp/Playground/playGeral.playground#CharacterRangeLen=655&amp;CharacterRangeLoc=0&amp;EndingColumnNumber=0&amp;EndingLineNumber=39&amp;StartingColumnNumber=0&amp;StartingLineNumber=0&amp;Timestamp=605585363.559544"
+         selectedRepresentationIndex = "0"
+         shouldTrackSuperviewWidth = "NO">
+      </LoggerValueHistoryTimelineItem>
    </TimelineItems>
 </Timeline>

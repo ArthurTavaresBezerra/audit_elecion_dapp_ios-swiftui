@@ -9,13 +9,8 @@
 import Foundation
 
 
-//Presidente=1, Governador=3, Senador=5, Deputado federal6Deputado estadual7Deputado distrital8Conselheiro distrital9Prefeito11Vereador13
+enum EnumKindPolitical: Int {
     
-
-
-
-enum EnumKindPolitical: Int, CustomStringConvertible {
-
     case  Presidente=1
     case  Governador=3
     case  Senador=5
@@ -26,7 +21,10 @@ enum EnumKindPolitical: Int, CustomStringConvertible {
     case  Prefeito=11
     case  Vereador=13
 
-
+    public var rawValueExt : Int {
+        return self.rawValue
+    }
+    
     var description: String {
       get {
           switch self {
@@ -54,3 +52,9 @@ enum EnumKindPolitical: Int, CustomStringConvertible {
 
 }
 
+extension EnumKindPolitical {
+    static var allCases: [EnumKindPolitical] {
+        return [.Presidente, .Governador, .Senador, .DeputadoFederal, .DeputadoEstadual, .DeputadoDistrital, .ConselheiroDistrital, .Prefeito, .Vereador]
+    }
+}
+ 

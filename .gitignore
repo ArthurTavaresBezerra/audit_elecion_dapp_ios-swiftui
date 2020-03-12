@@ -4,3 +4,5 @@
 **/history*
 geths/geth197
 geths/geth1911
+**/Pods
+**/Podfile.lock

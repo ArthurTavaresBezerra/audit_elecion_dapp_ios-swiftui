@@ -1,0 +1,55 @@
+----------------------------------------------------------------------------------
+QR Code no Boletim de Urna
+----------------------------------------------------------------------------------
+Exemplos de boletins de urna
+----------------------------------------------------------------------------------
+
+Conteúdo:
+	- *.imgbu: arquivos de saída originais da urna;
+		esses arquivos contém o relatório impresso pela urna (formato ASN.1/BER);
+		esses arquivos não são utilizados para a totalização do resultado oficial,
+		tratando-se de cópia do conteúdo enviado para a impressora da urna
+	- *.pdf: relatórios impressos pela urna, convertidos
+		para PDF a partir dos arquivos *.imgbu
+	
+Esses arquivos seguem a seguinte regra de formação de nome:
+
+Fppppp-MMMMMZZZZSSSS.imgbu	
+Fppppp-MMMMMZZZZSSSS.pdf
+	
+F – Fase dos dados (o – oficial; s – simulado; t – treinamento)
+ppppp – Número do pleito, com zeros à esquerda
+MMMMM – Número do município, com zeros à esquerda
+ZZZZ – Número da zona, com zeros à esquerda
+SSSS – Número da seção, com zeros à esquerda
+
+Estão disponíveis boletins de urna de primeiro e segundo turno, gerados pelo
+Software de Votação, Recuperador de Dados e Sistema de Apuração. Há boletins
+com um ou mais QR Codes. Os arquivos JSON de complemento dos dados estão
+disponíveis na Internet, segundo as intruções do manual. Todos possuem
+assinatura digital válida.
+
+Segue a identificação dos dados:
+
+Fase: simulado
+Processo eleitoral: 03081
+Pleito de 1º turno: 03113
+Pleito de 2º turno: 0
+UF: Acre - AC
+Municípios:
+	01031 - Santa Rosa do Purus
+    01392 - Rio Branco
+	01570 - Assis Brasil
+
+Eleiçãoões:
+    3189 - Eleição Geral Federal 2018
+    3191 - Eleições Gerais Estaduais 2018
+    3193 - Plebiscito de Augusto Severo
+    3194 - Eleição Cons. Fernando de Noronha
+
+----------------------------------------------------------------------------------
+TRIBUNAL SUPERIOR ELEITORAL
+SECRETARIA DE TECNOLOGIA DA INFORMAÇÃO
+SEÇÃO DE VOTO INFORMATIZADO
+Setembro de 2018
+qrcodenobu@tse.jus.br
