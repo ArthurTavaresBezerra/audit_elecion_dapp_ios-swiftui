@@ -3,9 +3,9 @@ platform :ios, '13.0'
 use_frameworks!
 
 def common_pods
-  pod 'Realm', '4.3.2'
-  pod 'RealmSwift', '4.3.2'
-  pod 'web3swift', '2.2.1'
+  pod 'Realm', '~> 3.20.0'
+  pod 'RealmSwift', '~> 3.20.0'
+  pod 'web3.swift', '0.3.4'
 
 end
 

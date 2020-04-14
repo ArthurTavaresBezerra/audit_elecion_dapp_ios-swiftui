@@ -47,10 +47,10 @@ struct Home: View {
 
          MenuView(show: $showMenuSideBar)
       }
-      .onAppear(perform: {
-        }).sheet(isPresented: self.$showAddBoletim , content: {
-            return AddBoletimView(qrCode: PListHelper.readProperty("qrCodeExample"))
-        })
+//      .onAppear(perform: {
+//        }).sheet(isPresented: self.$showAddBoletim , content: {
+//            return AddBoletimView(qrCode: PListHelper.readProperty("qrCodeExample"))
+//        })
       .background(Color("background"))
       .edgesIgnoringSafeArea(.all)
    }

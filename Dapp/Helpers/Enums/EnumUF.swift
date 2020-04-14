@@ -39,6 +39,10 @@ enum EnumUF : Int, CustomStringConvertible, CaseIterable {
     case DF=53
     
     
+    public var rawValueExt : Int {
+        return self.rawValue
+    }
+    
     var description: String {
       get {
         switch self {

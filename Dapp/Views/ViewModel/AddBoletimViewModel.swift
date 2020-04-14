@@ -11,26 +11,41 @@ import Combine
 
 class AddBoletimViewModel: ObservableObject {
 
-    let dogApiUrl = "https://dog.ceo/api/breeds/list/random/40"
     private var task: AnyCancellable?
     
+    @Published var isAlreadyExists: Bool = false
     @Published var isProcessing: Bool = false
-    @Published var dogs: [String] = []
     @Published var boletim : BoletimVM = BoletimVM(id: "", cUF: 0, cMum: 0, boletimDetalhes: [])
-    
-    func fetchDogs() {
-      task = URLSession.shared.dataTaskPublisher(for: URL(string: dogApiUrl)!)
-        .map { $0.data }
-        .decode(type: DogMessage.self, decoder: JSONDecoder())
-        .map { $0.message }
-        .replaceError(with: [String]())
-        .eraseToAnyPublisher()
-        .receive(on: RunLoop.main)
-        .assign(to: \AddBoletimViewModel.dogs, on: self)
-    }
-    
+    @Published var qtdToProcess: Int = 0
+    @Published var qtdProcessed: Int = 0
+
     func saveLocalAndBlockChain(){
-        self.isProcessing.toggle()
+
+        self.isProcessing = true
+                    
+            let dispatcher = DispatchGroup()
+                  
+
+            var count = 0.3
+            let isP = self.boletim.boletimDetalhes[3].isProcessado
+
+            for c in 0...self.boletim.boletimCargos.count-1 {
+                for i in 0...self.boletim.boletimDetalhes.count-1 {
+                    
+                    dispatcher.enter()
+                    DispatchQueue.main.asyncAfter(deadline: .now() + count) {
+                        self.boletim.boletimCargos[c].boletimDetalhes[i].isProcessado = !isP
+                        self.qtdProcessed += 1
+                        dispatcher.leave()
+                    }
+                    count += 0.3
+                }
+            }
+            
+            dispatcher.notify(queue: .main) {
+                self.isProcessing = false
+                return
+            }
     }
     
     func decodeBoletim(qrCode: String) {
@@ -63,6 +78,15 @@ class AddBoletimViewModel: ObservableObject {
             
             if let e = enumPartido {
                 namePartido = e.description
+            } 
+
+            var nameCargo = ""
+            let enumCargo = EnumKindPolitical.allCases.first { (en) -> Bool in
+                return en.rawValueExt == cCargo
+            }
+            
+            if let e = enumCargo {
+                nameCargo = e.description
             }
             
             if label.isNumeric  {
@@ -72,19 +96,20 @@ class AddBoletimViewModel: ObservableObject {
                                                     cPartido: cPartido,
                                                     namePartido: namePartido,
                                                     cCargo: cCargo,
+                                                    nameCargo: nameCargo,
                                                     cCandidato: label.toInt,
                                                     qtdVoto: value.toInt,
                                                     idTransactionBlockchain: "",
                                                     isProcessado: false))
-                
             }
         }
         self.boletim = boletim
-        
+
         for enIt in EnumKindPolitical.allCases {
             
             var cargo = BoletimCargoVM(id: enIt.rawValueExt, name: enIt.description)
             cargo.boletimDetalhes = self.boletim.boletimDetalhes.filter { (b) -> Bool in
+                
                 return b.cCargo == cargo.id
             }
             
@@ -93,14 +118,13 @@ class AddBoletimViewModel: ObservableObject {
             }
 
         }
+    
+        self.isAlreadyExists = BoletimManager.shared.get(self.boletim.id) != nil
+        self.boletim.boletimDetalhes = self.boletim.boletimDetalhes
+        self.qtdToProcess = self.boletim.boletimDetalhes.count
     }
+    
 }
-
-struct DogMessage: Codable {
-  let message: [String]
-  let status: String
-}
-
 
 struct BoletimVM : Identifiable{
     var id : String
@@ -122,8 +146,24 @@ struct BoletimDetalheVM : Identifiable{
     var cPartido: Int
     var namePartido : String
     var cCargo : Int
+    var nameCargo : String
     var cCandidato: Int
     var qtdVoto: Int
     var idTransactionBlockchain: String
     var isProcessado: Bool
+
+    init(id : String,  boletim : BoletimVM, cPartido: Int, namePartido : String, cCargo : Int, nameCargo : String, cCandidato: Int, qtdVoto: Int, idTransactionBlockchain: String, isProcessado: Bool) {
+        self.id = id
+        self.boletim = boletim
+        self.cPartido = cPartido
+        self.namePartido = namePartido
+        self.cCargo = cCargo
+        self.nameCargo = nameCargo
+        self.cCandidato = cCandidato
+        self.qtdVoto = qtdVoto
+        self.idTransactionBlockchain = idTransactionBlockchain
+        self.isProcessado = isProcessado
+         
+
+    }
 }
