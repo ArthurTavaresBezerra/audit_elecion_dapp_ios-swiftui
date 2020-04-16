@@ -25,20 +25,16 @@ class AddBoletimViewModel: ObservableObject {
                     
             let dispatcher = DispatchGroup()
                   
-
-            var count = 0.3
-            let isP = self.boletim.boletimDetalhes[3].isProcessado
-
             for c in 0...self.boletim.boletimCargos.count-1 {
                 for i in 0...self.boletim.boletimDetalhes.count-1 {
                     
                     dispatcher.enter()
-                    DispatchQueue.main.asyncAfter(deadline: .now() + count) {
-                        self.boletim.boletimCargos[c].boletimDetalhes[i].isProcessado = !isP
+//                    DispatchQueue.main.asyncAfter(deadline: .now() + count) {
+                        self.boletim.boletimCargos[c].boletimDetalhes[i].isProcessado = true
                         self.qtdProcessed += 1
                         dispatcher.leave()
-                    }
-                    count += 0.3
+//                    }
+//                        count += 0.3
                 }
             }
             

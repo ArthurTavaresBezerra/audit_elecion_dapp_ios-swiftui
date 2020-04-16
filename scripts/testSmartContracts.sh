@@ -2,6 +2,8 @@ cd "$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )/.."
 RCPPORT=8541
 IP_LOCAL=$(ipconfig getifaddr en0)
 
+echo "SERVIDOR ${IP_LOCAL}:${RCPPORT}" 
+
 ###########curl --data '{"jsonrpc":"2.0","method": "eth_getCompilers", "id": 3}' -H "Content-Type: application/json" $IP_LOCAL:$RCPPORT
 ###########curl --data '{"jsonrpc":"2.0","method": "eth_compileSolidity", "params": ["contract Multiply7 { event Print(uint); function multiply(uint input) returns (uint) { Print(input * 7); return input * 7; } }"], "id": 4}' -H "Content-Type: application/json" $IP_LOCAL:$RCPPORT
 
@@ -15,21 +17,22 @@ IP_LOCAL=$(ipconfig getifaddr en0)
 # echo "RPC - vote"
 # curl --data '{"jsonrpc":"2.0","method": "eth_sendTransaction", "params": [{"from": "0x019b2231c3cd4e4f3115ea69573014702d4cbb23", "to": "0x6d655ad34f9900f8f39105f33a2a530f34b2a5c8", "data": "0x8225506400000000000000000000000000000000000000000000000000000000000000a000000000000000000000000000000000000000000000000000000000000000e00000000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000000000000000000300000000000000000000000000000000000000000000000000000000000000050000000000000000000000000000000000000000000000000000000000000001350000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000013500000000000000000000000000000000000000000000000000000000000000"}], "id": 2}' -H "Content-Type: application/json" $IP_LOCAL:$RCPPORT
 echo "RPC - getTotalCandidatos"
-curl --data '{"jsonrpc":"2.0","method": "eth_call", "params": [{"from": "0x019b2231c3cd4e4f3115ea69573014702d4cbb23", "to": "0x6d655ad34f9900f8f39105f33a2a530f34b2a5c8", "data": "0x4911c08e"}, "latest"], "id": 3}' -H "Content-Type: application/json" $IP_LOCAL:$RCPPORT
-echo "RPC - getTotalVotosPorCandidato"
-curl --data '{"jsonrpc":"2.0","method": "eth_call", "params": [{"from": "0x019b2231c3cd4e4f3115ea69573014702d4cbb23", "to": "0x6d655ad34f9900f8f39105f33a2a530f34b2a5c8", "data": "0xaa8b69fe00000000000000000000000000000000000000000000000000000000000000600000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000033131610000000000000000000000000000000000000000000000000000000000"}, "latest"], "id": 1}' -H "Content-Type: application/json" $IP_LOCAL:$RCPPORT
+curl --data '{"jsonrpc":"2.0","method": "eth_call", "params": [{"from": "0x019b2231c3cd4e4f3115ea69573014702d4cbb23", "to": "0x715ef3956c79cf320fd88a422e44024448db2f8b", "data": "0x4911c08e"}, "latest"], "id": 1}' -H "Content-Type: application/json" $IP_LOCAL:$RCPPORT
+# echo "RPC - getTotalVotosPorCandidato"
+# curl --data '{"jsonrpc":"2.0","method": "eth_call", "params": [{"from": "0x019b2231c3cd4e4f3115ea69573014702d4cbb23", "to": "0x6d655ad34f9900f8f39105f33a2a530f34b2a5c8", "data": "0xaa8b69fe00000000000000000000000000000000000000000000000000000000000000600000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000033131610000000000000000000000000000000000000000000000000000000000"}, "latest"], "id": 1}' -H "Content-Type: application/json" $IP_LOCAL:$RCPPORT
 
- 
+
+
 # echo "RPC - getValue"
 # curl --data '{"jsonrpc":"2.0","method": "eth_call", "params": [{"from": "0x019b2231c3cd4e4f3115ea69573014702d4cbb23", "to": "0xbd57423234c9a31565ccbbbf0fa9f577a8d97d47", "data": "0x20965255"}, "latest"], "id": 1}' -H "Content-Type: application/json" $IP_LOCAL:$RCPPORT
 
 # echo "RPC - setValue"
 # curl --data '{"jsonrpc":"2.0","method": "eth_sendTransaction", "params": [{"from": "0x019b2231c3cd4e4f3115ea69573014702d4cbb23", "to": "0xbd57423234c9a31565ccbbbf0fa9f577a8d97d47", "data": "0x7b8d56e300000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000002"}], "id": 2}' -H "Content-Type: application/json" $IP_LOCAL:$RCPPORT
 
-# echo "RPC - getValue"
-# curl --data '{"jsonrpc":"2.0","method": "eth_call", "params": [{"from": "0x019b2231c3cd4e4f3115ea69573014702d4cbb23", "to": "0xbd57423234c9a31565ccbbbf0fa9f577a8d97d47", "data": "0x20965255"}, "latest"], "id": 3}' -H "Content-Type: application/json" $IP_LOCAL:$RCPPORT
+#  echo "RPC - getValue"
+#  curl --data '{"jsonrpc":"2.0","method": "eth_call", "params": [{"from": "0x019b2231c3cd4e4f3115ea69573014702d4cbb23", "to": "0xbd57423234c9a31565ccbbbf0fa9f577a8d97d47", "data": "0x20965255"}, "latest"], "id": 3}' -H "Content-Type: application/json" $IP_LOCAL:$RCPPORT
 
 
-# geth --jspath "./scripts/scriptsJs" --exec 'loadScript("testSmartContracts.js")' attach ipc:./nodes/private1/geth.ipc
+#   geth --jspath "./scripts/scriptsJs" --exec 'loadScript("testSmartContracts.js")' attach ipc:./nodes/private1/geth.ipc
 
  
