@@ -20,5 +20,7 @@ geths/geth197/geth console \
 --rpcport $RCPPORT \
 --unlock 0,1,2 \
 --password ./accounts/passwdfile \
+--rpccorsdomain "*" \
 --allow-insecure-unlock \
+
  #--mine
