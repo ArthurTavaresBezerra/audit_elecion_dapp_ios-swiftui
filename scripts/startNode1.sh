@@ -2,7 +2,7 @@ cd "$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )/.."
 DATADIR="./nodes/private1"
 PORT=30301
 RCPPORT=8541
-IP_LOCAL=$(ipconfig getifaddr en0)
+IP_LOCAL=0.0.0.0
 NETWORK_ID=15
 
 echo PWD:${PWD}, DATADIR:${DATADIR}, PORT:${PORT}, RCPPORT:${RCPPORT}, IP_LOCAL:${IP_LOCAL}, NETWORK_ID:${NETWORK_ID}
@@ -22,5 +22,4 @@ geths/geth197/geth console \
 --password ./accounts/passwdfile \
 --rpccorsdomain "*" \
 --allow-insecure-unlock \
-
- #--mine
+--mine
