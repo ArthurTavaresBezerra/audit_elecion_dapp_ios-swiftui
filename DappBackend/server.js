@@ -1,26 +1,32 @@
-const nodeBlockchainServer = "http://192.168.0.105:8541"
-const express = require('express');
-const BlockchainService = require("./service/blockchain-service")
+const node1BlockchainServer = "http://18.216.2.160:8541"
+const node2BlockchainServer = "http://18.216.2.160:8542"
+const node3BlockchainServer = "http://18.216.2.160:8543"
 
-var blockchainService = new BlockchainService(nodeBlockchainServer)
+const express = require('express');
+const BlockchainService = require("./services/blockchain-service")
+
+var blockchainServiceNode1 = new BlockchainService(node1BlockchainServer)
+var blockchainServiceNode2 = new BlockchainService(node2BlockchainServer)
+var blockchainServiceNode3 = new BlockchainService(node3BlockchainServer)
 
 const app = express();
 const port = process.env.PORT || 5000;
 
-app.get('/api/total-candidatos', async (req, res) => {
-  const total = await blockchainService.totalCandidatos();
-  res.send({ total });
+var BlockchainController = require('./controlllers/blockchain-controller');
+
+var blockchainControllerNode1 = new BlockchainController(blockchainServiceNode1);
+var blockchainControllerNode2 = new BlockchainController(blockchainServiceNode2);
+var blockchainControllerNode3 = new BlockchainController(blockchainServiceNode3);
+
+app.use('/api/node1',  blockchainControllerNode1.api);
+app.use('/api/node2',  blockchainControllerNode2.api);
+app.use('/api/node3',  blockchainControllerNode3.api);
+
+app.get('/', function(req, res) {
+  req.is('html')
+  res.send("<h1>Audit Election Api.</h1> <br /> <span>api/node1</span><br /> <span>api/node2</span><br /> <span>api/node3</span>");
 });
 
-app.get('/api/total-votos-por-candidato/:id', async (req, res) => {
-  const total = await blockchainService.totalVotosPorCandidato(req.params.id);
-  res.send({ total });
-});
 
-app.get('/api/vote/:idpu/:idcandidate/:votes', async (req, res) => {
-  console.log(req.params)
-  await blockchainService.vote(req.params.idpu, req.params.idcandidate, req.params.votes);
-  res.send({ OK : true });
-});
 
 app.listen(port, () => console.log(`Listening on port ${port}`));

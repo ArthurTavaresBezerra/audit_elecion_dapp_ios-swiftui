@@ -29,6 +29,14 @@ function BlockchainService(urlHttpNodeServer) {
     console.log(web3.eth.Contract.transactionConfirmationBlocks)
     console.log("-----------------------------------")  
 
+    this.accounts = async () => {
+        return await web3.eth.getAccounts();
+    };
+
+    this.balance = async (addressAccount) => {
+        return await web3.eth.getBalance(addressAccount);
+    };
+
     this.totalCandidatos = async () => {
         return await this.contractInstance.methods.getTotalCandidatos().call().then( (total)=>{ return total }); 
     };
