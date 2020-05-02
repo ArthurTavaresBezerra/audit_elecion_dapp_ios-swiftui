@@ -1,3 +1,0 @@
-Instalar geth e/ou bootnode 
- - sudo apt-get udpate 
- - sudo apt-get install ethereum
